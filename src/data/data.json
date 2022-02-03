@@ -1,0 +1,47 @@
+{
+  "menus": [
+    {
+      "restaurantId": "ilMolino",
+      "restaurantName": "Il Molino",
+      "restaurantDescription": "il Molino is a chain of Italian restaurants, and our prices make us affordable for everyone. It’s the first network of pizzerias in Ukraine that serve authentic Italian pizza, made in accordance with regulations stipulated by the Italian legislation.",
+      "menuItems": [
+        {
+          "name": "Margherita",
+          "description": "Tomatoеs, mozzarella, basil. Allergens: cereals, lactose.",
+          "price": 169,
+          "weight": 340,
+          "averageRate": 4.6
+        },
+        {
+          "name": "Quattro stagioni",
+          "description": "Ground tomatoes, mozzarella, prosciutto cotto, salami Milano, artichokes, fresh mushrooms. Allergens: cereals, lactose.",
+          "price": 252,
+          "weight": 530,
+          "averageRate": 3.4
+        },
+        {
+          "name": "Pepperoni",
+          "description": "Ground tomatoes, mozzarella, spicy salami \"Pepperoni\". Allergens: cereals, lactose.",
+          "price": 265,
+          "weight": 420,
+          "averageRate": 5
+        },
+        {
+          "name": "Diavola",
+          "description": "Ground tomatoes, mozzarella, salami spicy, hot pepper. Allergens: cereals, lactose.",
+          "price": 266,
+          "weight": 420,
+          "averageRate": 4.1
+        },
+        {
+          "name": "Capricciosa",
+          "description": "Ground tomatoes, artichokes, prosciutto cotto, kalamata olives, fresh mushrooms, mozzarella. Allergens: cereals, lactose.",
+          "price": 252,
+          "weight": 500,
+          "averageRate": 4.1
+        }
+      ]
+    }
+  ]
+}
+

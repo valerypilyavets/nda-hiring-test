@@ -1,58 +1,35 @@
-import React from 'react';
+import React, {FormEvent} from 'react';
 import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import './App.css';
+import {Menu} from "./features/menu/Menu";
+import {FormControl, InputLabel, MenuItem, Select, SelectChangeEvent} from "@mui/material";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
-  );
+    const [restaurant, setRestaurant] = React.useState('');
+
+    const handleChange = (event: SelectChangeEvent) => {
+        setRestaurant(event.target.value);
+    };
+
+    return (
+        <>
+            <FormControl>
+                <InputLabel id="restaurant-label">Select restaurant</InputLabel>
+                <Select
+                    labelId="restaurant-label"
+                    id="restaurant"
+                    value={restaurant}
+                    label="Age"
+                    onChange={handleChange}
+                >
+                    <MenuItem value={'ilMolino'}>Il Molino</MenuItem>
+                    <MenuItem value={'nonExisting'}>Non existing restaurant</MenuItem>
+                </Select>
+            </FormControl>
+            <Menu restaurantId={restaurant}/>
+        </>
+
+    );
 }
 
 export default App;
