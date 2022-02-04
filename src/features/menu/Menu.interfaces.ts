@@ -1,3 +1,9 @@
+export enum Restaurants {
+    BEST_PIZZA,
+    SUPER_STEAK,
+    NON_EXISTING
+}
+
 export enum MenuStatus {
     INITIAL,
     LOADING,
@@ -6,7 +12,7 @@ export enum MenuStatus {
 }
 
 export interface Menu {
-    restaurantId: string;
+    restaurantId: number;
     restaurantName: string;
     restaurantDescription: string;
     menuItems: MenuItem[];

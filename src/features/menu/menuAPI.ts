@@ -1,7 +1,7 @@
 import {Menu, MenuError} from "./Menu.interfaces";
 import data from "../../data/data.json"
 
-export function fetchMenu(restaurantId: string) {
+export function fetchMenu(restaurantId: number) {
     return new Promise<{ result: Menu } >((resolve, reject) => {
         setTimeout(() => {
             const menus: Menu[] = data.menus;

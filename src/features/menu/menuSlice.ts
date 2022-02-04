@@ -9,9 +9,9 @@ const initialState: MenuState = {
     error: undefined
 };
 
-export const fetchMenuThunk = createAsyncThunk<Menu, string, { rejectValue: MenuError }>(
+export const fetchMenuThunk = createAsyncThunk<Menu, number, { rejectValue: MenuError }>(
     'menu/fetch',
-    async (restaurantId: string, thunkApi) => {
+    async (restaurantId: number, thunkApi) => {
         try {
             const response = await fetchMenu(restaurantId);
             return response.result;
@@ -47,8 +47,9 @@ export const menuSlice = createSlice({
 
 //export const {fetchMenuThunk} = chatSlice.actions;
 
-//export const messagesSelector = (state: RootState) => state.chat.messages;
-//export const userNameSelector = (state: RootState) => state.chat.userName;
-//export const chatStatusSelector = (state: RootState) => state.chat.status;
+export const selectMenuItems = (state: RootState) => state.menu.menu?.menuItems;
+export const selectRestaurantName = (state: RootState) => state.menu.menu?.restaurantName;
+export const selectRestaurantDescription = (state: RootState) => state.menu.menu?.restaurantDescription;
+export const selectStatus = (state: RootState) => state.menu.status;
 
 export default menuSlice.reducer;

@@ -1,8 +1,8 @@
 {
   "menus": [
     {
-      "restaurantId": "ilMolino",
-      "restaurantName": "Il Molino",
+      "restaurantId": 0,
+      "restaurantName": "Best pizza",
       "restaurantDescription": "il Molino is a chain of Italian restaurants, and our prices make us affordable for everyone. It’s the first network of pizzerias in Ukraine that serve authentic Italian pizza, made in accordance with regulations stipulated by the Italian legislation.",
       "menuItems": [
         {
