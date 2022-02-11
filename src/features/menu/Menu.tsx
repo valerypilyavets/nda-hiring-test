@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {Typography, CircularProgress, Box} from "@mui/material";
 import {useAppSelector, useAppDispatch} from '../../app/hooks';
 import {Error} from "./components/Error";
@@ -34,23 +34,32 @@ export function Menu({restaurantId}: MenuPropTypes) {
     return (
         <>
             {status === MenuStatus.LOADING &&
-                <Box sx={{display: 'flex'}}>
+                <Box sx={{
+                    textAlign: 'center',
+                    marginTop: '50px'
+                }}>
                     <CircularProgress/>
                 </Box>
             }
             {status === MenuStatus.READY &&
-                <>
-                    <Typography variant="h1">
+                <Box sx={{
+                    marginTop: '30px'
+                }}>
+                    <Typography gutterBottom variant="h3">
                         {restaurantName}
                     </Typography>
                     <Typography variant="body1">
                         {restaurantDescription}
                     </Typography>
                     <MenuItems items={menuItems} />
-                </>
+                </Box>
             }
             {status === MenuStatus.ERROR &&
-                <Error/>
+                <Box sx={{
+                    marginTop: '30px'
+                }}>
+                    <Error/>
+                </Box>
             }
         </>
     );

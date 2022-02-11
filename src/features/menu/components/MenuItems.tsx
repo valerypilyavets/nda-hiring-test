@@ -1,21 +1,23 @@
 import React from 'react';
-import {Alert} from "@mui/material";
-import {MenuItem} from "../Menu.interfaces";
+import {Grid} from "@mui/material";
+import {IMenuItem} from "../Menu.interfaces";
+import {MenuItem} from "./MenuItem";
 
-interface MenuItemsPropTypes {
-    items: MenuItem[]
+interface IMenuItemsPropTypes {
+    items: IMenuItem[] | undefined
 }
 
-export function MenuItems({items}: MenuItemsPropTypes) {
+export function MenuItems({items}: IMenuItemsPropTypes) {
 
     return (
-        <>
-        {items.map((item, index) => (
-            <>
-                {item.name}<br/>
-                {item.description}<br/>
-            </>
-        ))}
-        </>
+        <Grid container rowSpacing={2} columnSpacing={2} sx={{
+            marginTop: '30px'
+        }}>
+            {items !== undefined && items.map((item, index) => (
+                <Grid item xs={6}>
+                    <MenuItem  key={index} item={item}/>
+                </Grid>
+            ))}
+        </Grid>
     );
 }

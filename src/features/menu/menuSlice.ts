@@ -1,22 +1,22 @@
-import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import {RootState} from '../../app/store';
-import {MenuError, Menu, MenuState, MenuStatus} from "./Menu.interfaces";
+import {IMenuError, IMenu, IMenuState, MenuStatus} from "./Menu.interfaces";
 import {fetchMenu} from "./menuAPI";
 
-const initialState: MenuState = {
+const initialState: IMenuState = {
     menu: undefined,
     status: MenuStatus.INITIAL,
     error: undefined
 };
 
-export const fetchMenuThunk = createAsyncThunk<Menu, number, { rejectValue: MenuError }>(
+export const fetchMenuThunk = createAsyncThunk<IMenu, number, { rejectValue: IMenuError }>(
     'menu/fetch',
     async (restaurantId: number, thunkApi) => {
         try {
             const response = await fetchMenu(restaurantId);
             return response.result;
         } catch (error) {
-            return thunkApi.rejectWithValue(error.result as MenuError);
+            return thunkApi.rejectWithValue(error.result as IMenuError);
         }
     }
 );
@@ -44,8 +44,6 @@ export const menuSlice = createSlice({
         });
     },
 });
-
-//export const {fetchMenuThunk} = chatSlice.actions;
 
 export const selectMenuItems = (state: RootState) => state.menu.menu?.menuItems;
 export const selectRestaurantName = (state: RootState) => state.menu.menu?.restaurantName;

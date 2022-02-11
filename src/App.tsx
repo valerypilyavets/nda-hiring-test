@@ -1,8 +1,7 @@
-import React, {FormEvent} from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 import {Menu} from "./features/menu/Menu";
-import {Container, Box, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent} from "@mui/material";
+import {Container, Box, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, Typography} from "@mui/material";
 import {Restaurants} from "./features/menu/Menu.interfaces";
 
 function App() {
@@ -13,10 +12,15 @@ function App() {
     };
 
     return (
-        <Container fixed sx={{
+        <Container maxWidth="md" fixed sx={{
             marginTop: '50px'
         }}>
-            <Box sx={{width: '300px'}}>
+            <Typography variant="h1" gutterBottom sx={{
+                    textAlign: 'center'
+                }}>Menu ratings app</Typography>
+            <Box sx={{
+                width: '300px',
+            }}>
                 <FormControl fullWidth>
                     <InputLabel id="restaurant-label">Select restaurant</InputLabel>
                     <Select
